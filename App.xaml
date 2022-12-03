@@ -10,5 +10,9 @@
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
         </Style>
+        <Style x:Key="DataGrid" TargetType="DataGrid">
+            <Setter Property="Background" Value="Wheat"/>
+            <Setter Property="BorderBrush" Value="Blue"/>
+        </Style>
     </Application.Resources>
 </Application>

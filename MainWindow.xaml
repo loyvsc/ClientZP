@@ -8,9 +8,6 @@
         mc:Ignorable="d"
         x:Name="Window" WindowStartupLocation="CenterScreen"
         Title="Составим расчётную ведомость!" Height="300" Width="500">
-    <Window.CommandBindings>
-       
-    </Window.CommandBindings>
     <Grid>
         <Menu x:Name="_MainMenu" Style="{StaticResource Menu}">
             <MenuItem Header="Файл">
@@ -22,11 +19,11 @@
                 <MenuItem Header="Удалить" IsEnabled="False" x:Name="DeleteClientMenuItem"/>
             </MenuItem>
             <MenuItem Header="Справка"/>
-            <MenuItem Header="О программе" Command=""/>
+            <MenuItem Header="О программе"/>
         </Menu>
         <StackPanel Margin="0,20,0,0">
-            <TextBox x:Name="textBox" Width="auto" Margin="5,5,5,5" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <DataGrid Margin="5,0,5,0" ItemsSource="{Binding ClientList}" Background="White" BorderBrush="Blue" x:Name="ClientTable"/>
+            <TextBox Width="auto" Margin="5,5,5,5" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <DataGrid Margin="5,0,5,0" ItemsSource="{Binding ClientList}" Style="{StaticResource DataGrid}"/>
         </StackPanel>
     </Grid>
 </Window>

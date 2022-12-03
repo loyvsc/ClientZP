@@ -19,6 +19,9 @@ namespace ClientZP.ViewModels
         private string _searchtext;
         public static RoutedCommand AboutProgramCommand { get; protected set; }
 
+        /// <summary>
+        /// Текст поисковой строки
+        /// </summary>
         public string SearchText
         {
             get
