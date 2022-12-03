@@ -1,0 +1,32 @@
+﻿<Window x:Class="ClientZP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ViewModels="clr-namespace:ClientZP.ViewModels"
+        d:DataContext="{d:DesignInstance Type=ViewModels:MainViewModel}"
+        mc:Ignorable="d"
+        x:Name="Window" WindowStartupLocation="CenterScreen"
+        Title="Составим расчётную ведомость!" Height="300" Width="500">
+    <Window.CommandBindings>
+       
+    </Window.CommandBindings>
+    <Grid>
+        <Menu x:Name="_MainMenu" Style="{StaticResource Menu}">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Открыть"/>
+                <MenuItem Header="Сохранить" IsEnabled="False" x:Name="SaveFileMenuItem"/>
+            </MenuItem>
+            <MenuItem Header="Сотрудник">
+                <MenuItem Header="Добавить"/>
+                <MenuItem Header="Удалить" IsEnabled="False" x:Name="DeleteClientMenuItem"/>
+            </MenuItem>
+            <MenuItem Header="Справка"/>
+            <MenuItem Header="О программе" Command=""/>
+        </Menu>
+        <StackPanel Margin="0,20,0,0">
+            <TextBox x:Name="textBox" Width="auto" Margin="5,5,5,5" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <DataGrid Margin="5,0,5,0" ItemsSource="{Binding ClientList}" Background="White" BorderBrush="Blue" x:Name="ClientTable"/>
+        </StackPanel>
+    </Grid>
+</Window>
