@@ -14,5 +14,17 @@
             <Setter Property="Background" Value="Wheat"/>
             <Setter Property="BorderBrush" Value="Blue"/>
         </Style>
+        <Style x:Key="Button" TargetType="Button">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0.7"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="TextBlock" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style x:Key="AllWindows" TargetType="Window">
+            <Setter Property="Background" Value="#F2F3F1"/>
+        </Style>
     </Application.Resources>
 </Application>

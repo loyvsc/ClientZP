@@ -6,24 +6,40 @@
         xmlns:ViewModels="clr-namespace:ClientZP.ViewModels"
         d:DataContext="{d:DesignInstance Type=ViewModels:MainViewModel}"
         mc:Ignorable="d"
-        x:Name="Window" WindowStartupLocation="CenterScreen"
-        Title="Составим расчётную ведомость!" Height="300" Width="500">
+        x:Name="Window" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip"
+        Title="ПС ''Составление расчётной ведомости''" MinWidth="650" Width="700" MinHeight="305" Height="295">
     <Grid>
-        <Menu x:Name="_MainMenu" Style="{StaticResource Menu}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="11*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
             <MenuItem Header="Файл">
+                <MenuItem Header="Новый файл" Command="{Binding CreateNewFileMenuItem}"/>
                 <MenuItem Header="Открыть"/>
-                <MenuItem Header="Сохранить" IsEnabled="False" x:Name="SaveFileMenuItem"/>
+                <MenuItem Header="Сохранить" IsEnabled="{Binding SaveFileMenuItemEnabled}"/>
             </MenuItem>
             <MenuItem Header="Сотрудник">
-                <MenuItem Header="Добавить"/>
-                <MenuItem Header="Удалить" IsEnabled="False" x:Name="DeleteClientMenuItem"/>
+                <MenuItem Header="Добавить" Command="{Binding AddClientMenuItemCommand}"/>
+                <MenuItem Header="Удалить" IsEnabled="{Binding DeleteClientMenuItemEnabled}"/>
             </MenuItem>
-            <MenuItem Header="Справка"/>
-            <MenuItem Header="О программе"/>
+            <MenuItem Header="Справка">
+                <MenuItem Header="Получить поддержку"/>
+                <MenuItem Header="О программе" Command="{Binding AboutMenuItemCommand}"/>
+            </MenuItem>
         </Menu>
-        <StackPanel Margin="0,20,0,0">
-            <TextBox Width="auto" Margin="5,5,5,5" Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <DataGrid Margin="5,0,5,0" ItemsSource="{Binding ClientList}" Style="{StaticResource DataGrid}"/>
-        </StackPanel>
+        <TextBox Grid.Row="1" Margin="10,5,10,0" Text="{Binding SearchText, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <DataGrid Margin="10,5,10,10" MinHeight="200" Grid.Row="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="№ п/п" Width="50"/>
+                    <DataGridTextColumn Header="Ф.И.О." Width="*"/>
+                    <DataGridTextColumn Header="Должность" Width="1.1*"/>
+                    <DataGridTextColumn Header="Начислено" Width="1.1*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Подоходный налог" Width="1.7*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Отчесления в пенсионный фонд" Width="2.7*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="К выплате" Width="80" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
     </Grid>
 </Window>

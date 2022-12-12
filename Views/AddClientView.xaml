@@ -1,0 +1,36 @@
+﻿<Window x:Class="ClientZP.Views.AddClientView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:ViewModels="clr-namespace:ClientZP.ViewModels"
+        d:DataContext="{d:DesignInstance Type=ViewModels:AddClientViewModel}"
+        Title="Добавление сотрудника" ResizeMode="NoResize" SizeToContent="WidthAndHeight">
+    <StackPanel Orientation="Horizontal">
+        <GroupBox Margin="5,5,5,5" Header="Информация о сотруднике">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <TextBlock FontSize="12" Margin="5,0,0,0">Фамилия</TextBlock>
+                    <TextBox Text="{Binding Surname, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MinWidth="200" Margin="5,0,0,0"/>
+                    <TextBlock FontSize="12" Margin="5,0,0,0">Имя</TextBlock>
+                    <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="200" Margin="5,0,0,0"/>
+                    <TextBlock FontSize="12" Margin="5,0,0,0">Отчество</TextBlock>
+                    <TextBox Text="{Binding Pathnetic, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="200" Margin="5,0,0,0"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock FontSize="12" Margin="5,0,0,0">Должность</TextBlock>
+                    <TextBox Text="{Binding Dolghnost, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="200" Margin="5,0,0,0"/>
+                    <TextBlock FontSize="12" Margin="5,0,0,0">Количество отработанных часов</TextBlock>
+                    <TextBox Text="{Binding CountOfHours,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="200" Margin="5,0,0,0"/>
+                    <TextBlock FontSize="12" Margin="5,0,0,0">З/П за один час работы</TextBlock>
+                    <TextBox Text="{Binding ZPinHour, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MinWidth="200" Margin="5,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel>
+            <Button Width="60" Margin="5,15,5,5" Height="25" IsDefault="True" Command="{Binding ADDButtonCommand}">Добавить</Button>
+            <Button Width="60" Margin="5,5,5,5" Height="25" IsCancel="True">Отмена</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
